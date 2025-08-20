@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        background-color: rgb(34, 34, 34);
+    }
+
+    .register-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+
+    .register-container form {
+        background-color: rgb(45, 45, 45);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 16px 32px rgb(81, 115, 228);
+        color: rgb(255, 255, 255);
+    }
+
+
+    h2 {
+        color: rgb(255, 255, 255);
+    }
+
+
+    .register-container form input {
+        background-color: rgb(68, 68, 68);
+        color: rgb(255, 255, 255);
+        border: 1px solid rgb(97, 97, 97);
+        padding: 10px;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .register-container form input:focus {
+        border-color: rgb(81, 115, 228);
+        outline: none;
+    }
+
+
+    .register-container form button {
+        background-color: rgb(81, 115, 228);
+        color: rgb(255, 255, 255);
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .register-container form button:hover {
+        background-color: rgb(65, 92, 182);
+    }
+
+    .register-container form p {
+        margin: 0;
+        padding: 0;
+    }
+</style>
+
+<div class="register-container">
+    <form method="post">
+        <h2>Login</h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+</div>
+{% endblock %}

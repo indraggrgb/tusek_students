@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* 1. Меняем цвет фона страницы на нейтральный серый */
+    body {
+        background-color: rgb(44, 47, 51);
+        color: rgb(255, 255, 255);
+    }
+
+    /* 2. Стилизуем все поля ввода и выпадающие списки */
+    input,
+    textarea,
+    select {
+        background-color: rgb(64, 68, 75) !important;
+        /* Устанавливаем тёмный фон */
+        color: rgb(255, 255, 255) !important;
+        /* Устанавливаем белый текст */
+        border: 1px solid rgb(85, 85, 85) !important;
+        border-radius: 4px;
+        padding: 8px 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 3. Добавляем эффект подсветки при наведении */
+    input:hover,
+    textarea:hover,
+    select:hover {
+        border-color: rgb(114, 137, 218) !important;
+    }
+
+    /* Дополнительные стили для фокуса и кнопки */
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: rgb(114, 137, 218) !important;
+        outline: none !important;
+    }
+
+    button[type="submit"] {
+        background-color: rgb(114, 137, 218);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button[type="submit"]:hover {
+        background-color: rgb(91, 110, 174);
+    }
+</style>
+<div class="container mt-3">
+    <h2>{{ view.title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Зберегти</button>
+    </form>
+</div>
+{% endblock %}
